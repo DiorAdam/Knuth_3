@@ -14,7 +14,7 @@ toy_map = { 'A': {'coords': (100, 100), 'next': {'B': 140, 'E': 200, 'F': 200}},
 def PCCs_heap(graph,s):
     frontier = [(0,s)]
     heapify(frontier)
-    extracted = {}
+    extracted = set()
     dist = {s:0}
     while len(extracted)< len(graph):
 
@@ -22,14 +22,14 @@ def PCCs_heap(graph,s):
         x = heappop(frontier)[1]
         while x in extracted:
             x = heappop(frontier)[1]
-        extracted[x] = True
+        extracted.add(x)
         ### pour chaque voisin mise à jour de la frontière et de sa distance ###
         for y in graph[x]["next"]:
             new_dist = dist[x] + graph[x]["next"][y]
-
             if y not in dist or dist[y] > new_dist:
                 heappush(frontier, (new_dist, y) )
                 dist[y] = new_dist
+                
             
     return dist
 
@@ -46,5 +46,5 @@ def all_distances(map, PCC= PCCs_heap):
                 res[(s,y)] = dist[y]
     return res
 
-#print(all_distances(toy_map))
+print(all_distances(toy_map))
 
