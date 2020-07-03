@@ -30,7 +30,7 @@ def deletion(tab, s):
         val, tab[i][j-1] = tab[i][j-1], val
         i-=1
 
-
+'''
 t = [[1,3,5,9,12,16], [2,6,10,15], [4,13,14], [11], [17]]
 t = []
 p = [7,2,9,5,3]
@@ -41,4 +41,4 @@ for x in p:
 #deletion(t,3)
 for x in t:
     print(x)
-
+'''
