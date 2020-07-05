@@ -28,3 +28,5 @@ klist = [503, 87, 512, 61, 908, 170, 897, 275, 653, 426, 154, 509, 612, 677, 765
 d = binlist(klist)
 radixSort(klist,0,len(klist))
 print([d[x] for x in klist])
+
+
